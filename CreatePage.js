@@ -91,26 +91,15 @@ function CreatPage({addNotes}) {
         <FormControl sx={{ marginTop: "25px" }}>
           <FormLabel color="secondary">Note Category</FormLabel>
           <RadioGroup value={category.length > 1 ?category:"todos"} onChange={(e)=>setCategory(e.currentTarget.value)}>
-            <FormControlLabel
-              value="money"
-              control={<Radio sx={style} />}
-              label="Money"
-            />
-            <FormControlLabel
-              value="todos"
-              control={<Radio sx={style} />}
-              label="Todos"
-            />
-            <FormControlLabel
-              value="Reminders"
-              control={<Radio sx={style} />}
-              label="Reminders"
-            />
-            <FormControlLabel
-              value="Work"
-              control={<Radio sx={style} />}
-              label="Work"
-            />
+            
+            {["money", "todos", "Reminders", "Work"].map((text) => (
+              <FormControlLabel
+                value={text}
+                control={<Radio sx={style} />}
+                label={text}
+              />
+            ))}
+            
           </RadioGroup>
         </FormControl>
         <Button
